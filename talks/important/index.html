@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Samsung Gear Development</title>
+
+		<meta name="description" content="Samsung Gear Development">
+		<meta name="author" content="Mike Bockus">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/github.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Samsung Gear Development</h1>
+					<h3>Fun times with the Tizen SDK<br/> and Device Motion Gesture</h3>
+                    <div style="display:inline-block;vertical-align:middle;">
+						<img src="img/me.jpg"/>
+                    </div>
+                    <div style="display:inline-block;">
+                        <a href="http://twitter.com/MikeBockus">Mike Bockus</a>
+                    </div>
+                    <aside class="notes">
+                        Tell the glorious people who you are!
+                    </aside>
+				</section>
+
+				<section>
+					<h2>What Are We Talking About?</h2>
+					<ul>
+						<li>What is the Gear</li>
+						<li>How do I develop for this thing?</li>
+						<ul>
+							<li>Tizen SDK</li>
+							<li>Chrome Debugger</li>
+							<li>What are the capabilities?</li>
+						</ul>
+						<li>Playing with the accelerometer</li>
+						<li>The End Result</li>
+					</ul>
+				</section>
+                
+                <section>
+                    <section>
+                        <h2>Samsung Gear</h2>
+                        <img src="img/gear.png"/>
+                        <aside class="notes">
+                            I'm going to look just like Dick Tracy!
+                        </aside>
+                    </section>
+                    <section>
+                        <h3>Just like Dick Tracy...</h3>
+                        <img width="340px" height="500px" src="img/dicktracy.jpg"/>
+                    </section>
+                </section>
+
+				<section>
+					<h2>So how do I go about putting my sweet sweet code on there?</h2>
+                    <aside class="notes">
+                        Is this one of those newfangled android wearables? I wonder how that platform works?
+                    </aside>
+				</section>
+
+				<section>
+					<h2>Tizen SDK</h2>
+					<p>
+						"The OS of Everything" - Great, another platform to learn!
+					</p>
+					<p>
+						<a href="https://developer.tizen.org/">https://developer.tizen.org/</a>
+						<a href="http://developer.samsung.com/gear">http://developer.samsung.com/gear</a>
+					</p>
+                    <aside class="notes">
+                        Nope! A brand new platform you've never heard of... 
+                    </aside>
+				</section>
+
+				<section data-background="img/dev-env.png">
+					<h1 style="color:red;">Chrome Debugger FTW!</h1>
+                    <aside class="notes">
+                        <ul>
+                            <li>The Eclipse horror story.</li>
+                            <li>The emulator that fails to emulate.</li>
+                            <li>Finally, chrome debugger! Maybe I'll make it...</li>
+                        </ul>
+                    </aside>
+				</section>
+				
+				<section>
+					<h2>What Am I Working With?</h2>
+					<ul>
+						<li><a href="http://developer.samsung.com/resources/accessory">Samsung Accessory SDK</a></li>
+						<li><a href="https://developer.tizen.org/documentation/wearable-web-app-programming/api-references/web-api-references">Tizen Web API Reference</a></li>
+					</ul>
+                    <aside class="notes">
+                        Globally defined objects. What W3C standards does the device comply with?
+                    </aside>
+				</section>
+
+				<section>
+					<h2>The Big Idea</h2>
+					<p>Develop an app that makes awesome sound effects as I move.</p>
+					<p>Accelerometer APIs are available, but how do I use that data to recognize a motion?</p>
+                    <aside class="notes">
+                        Surely this has been done before.
+                    </aside>
+				</section>
+
+				<section>
+					<h2>JS Motion Gesture</h2>
+					<p>A JavaScript library hidden in the depths of SourceForge</p>
+					<blockquote cite="http://sourceforge.net/projects/jsmotiongesture/">
+						&ldquo;The software converts the continual stream of motion readings into distinct gesture events. 
+						All you need to do is attach event-handlers to the gestures. Your functions get called when the user makes the gesture with the device.&rdquo;
+					</blockquote>
+					<p><a href="http://sourceforge.net/projects/jsmotiongesture/">http://sourceforge.net/projects/jsmotiongesture/</a></p>
+				</section>
+
+				<section>
+					<h2>Defining Gestures</h2>
+					<pre><code data-trim contenteditable>
+Motion.Gesture.Library.SLAP={
+    "id": "slap",
+    "signature": {
+        "roots": [
+            {
+                "points": [
+                    {
+                        "axis": "xg",
+                        "window": {
+                            "value": {
+                                "min": -10,
+                                "max": 10
+                            }
+                        }
+                    },
+                    {
+                        "axis": "yg",
+                        "window": {
+                            "value": {
+                                "min": -10,
+                                "max": 10
+                            }
+                        }
+                    },
+                    {
+                        "axis": "zg",
+                        "window": {
+                            "value": {
+                                "min": -10,
+                                "max": 10
+                            }
+                        }
+                    }
+                ],
+                "next": {
+                    "points": [
+                        {
+                            "axis": "zg",
+                            "window": {
+                                "value": {
+                                    "min": 15,
+                                    "max": 100
+                                }
+                            }
+                        }
+                    ],
+                    "window": {
+                        "time": {
+                            "width": 1000,
+                            "delay": 0
+                        }
+                    }
+                },
+                "window": {
+                    "time": {
+                        "width": 1000
+                    }
+                }
+            }
+        ]
+    }
+}
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>Handling Gestures</h2>
+					<pre><code data-trim contenteditable>
+function playAudio(sound) {
+    createjs.Sound.play(sound);
+    soundImage.src='/'+sound+'.png';
+};
+
+gestureMonitor = new Motion.Gesture.Recognition.Monitor();
+gestureMonitor.addGesture(Motion.Gesture.Library.SLAP, function() {
+    playAudio("slap");
+});
+new Motion.Gesture.Recognition.MotionDataPump(gestureMonitor, 5).start();
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>The End Result</h2>
+					<p>Let's see this magic in action!</p>
+                    <p><a href="https://www.youtube.com/watch?v=nuo5z397JuQ&index=1&list=PLrVzHwGkVfexrwo1xpzwk6FJNbG9YrENq">Just in case the demo went horribly wrong...</a> </p>
+				</section>
+
+				<section style="text-align: left;">
+					<h1>Questions</h1>
+					<p>
+						<a href="http://twitter.com/MikeBockus">@MikeBockus</a> <br>
+					</p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
