@@ -82,64 +82,85 @@
                     <li>Text Manipulation</li>
                     <li>Stickers</li>
                     <li>Farts</li>
-
                 </ul>
             </section>
-            <section>
-                <h3>Just like Dick Tracy...</h3>
-                <img width="340px" height="500px" src="img/dicktracy.jpg"/>
-            </section>
         </section>
 
         <section>
-            <h2>So how do I go about putting my sweet sweet code on there?</h2>
-            <aside class="notes">
-                Is this one of those newfangled android wearables? I wonder how that platform works?
-            </aside>
+            <h2>Easter Eggs with Cheet.js</h2>
+
+            <p>Map a sequence of keypresses to a callback. </p>
+            <h4><a href="demos/cheet.html" target="_blank">DEMO TIME!</a></h4>
         </section>
 
         <section>
-            <h2>Tizen SDK</h2>
+            <h2>That was magical... tell me how.</h2>
 
             <p>
-                "The OS of Everything" - Great, another platform to learn!
+                <a href="https://github.com/namuol/cheet.js" target="_blank">cheet.js</a> is a library that listens to
+                key events and invokes a callback if the criteria of your easter egg is met.
             </p>
 
             <p>
-                <a href="https://developer.tizen.org/">https://developer.tizen.org/</a>
-                <a href="http://developer.samsung.com/gear">http://developer.samsung.com/gear</a>
+                bower install cheet.js
             </p>
-            <aside class="notes">
-                Nope! A brand new platform you've never heard of...
-            </aside>
-        </section>
-
-        <section data-background="img/dev-env.png">
-            <h1 style="color:red;">Chrome Debugger FTW!</h1>
-            <aside class="notes">
-                <ul>
-                    <li>The Eclipse horror story.</li>
-                    <li>The emulator that fails to emulate.</li>
-                    <li>Finally, chrome debugger! Maybe I'll make it...</li>
-                </ul>
-            </aside>
         </section>
 
         <section>
-            <h2>What Am I Working With?</h2>
-            <ul>
-                <li><a href="http://developer.samsung.com/resources/accessory">Samsung Accessory SDK</a></li>
-                <li>
-                    <a href="https://developer.tizen.org/documentation/wearable-web-app-programming/api-references/web-api-references">Tizen
-                        Web API Reference</a></li>
-            </ul>
-            <aside class="notes">
-                Globally defined objects. What W3C standards does the device comply with?
-            </aside>
+            <h2>Examples</h2>
+            <pre><code data-trim contenteditable>
+cheet('↑ ↑ ↓ ↓ ← → ← → b a', function () {
+    alert('Voilà!');
+});
+
+cheet('i d d q d', function () {
+    alert('god mode enabled');
+});
+
+cheet('o n e a t a t i m e', {
+    next: function (str, key, num, seq) {
+        console.log('key pressed: ' + key);
+        console.log('progress: ' + num / seq.length);
+        console.log('seq: ' + seq.join(' '));
+    },
+    fail: function () {
+        console.log('sequence failed');
+    },
+    done: function () {
+        console.log('+30 lives ;)');
+    }
+});
+            </code></pre>
         </section>
 
         <section>
-            <h2>The Big Idea</h2>
+            <h2>More Examples</h2>
+            <pre><code data-trim contenteditable>
+cheet('o n c e', function () {
+    console.log('This will only fire once.');
+    cheet.disable('o n c e');
+});
+
+var sequences = {
+    cross: 'up down left right',
+    circle: 'left up right down'
+};
+
+cheet(sequences.cross);
+cheet(sequences.circle);
+
+cheet.done(function (seq) {
+    if (seq === sequences.cross) {
+        console.log('cross!');
+    } else {
+        console.log('circle!');
+    }
+});
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>C</h2>
 
             <p>Develop an app that makes awesome sound effects as I move.</p>
 
@@ -269,6 +290,7 @@
 
 <script src="lib/js/head.min.js"></script>
 <script src="js/reveal.js"></script>
+
 
 <script>
 
