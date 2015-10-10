@@ -135,7 +135,7 @@ cheet('o n e a t a t i m e', {
 
         <section>
             <h2>More Examples</h2>
-            <pre><code data-trim contenteditable>
+            <pre><code class="hljs" data-trim contenteditable>
 cheet('o n c e', function () {
     console.log('This will only fire once.');
     cheet.disable('o n c e');
@@ -160,120 +160,27 @@ cheet.done(function (seq) {
         </section>
 
         <section>
-            <h2>C</h2>
+            <h2>Font Creation</h2>
 
-            <p>Develop an app that makes awesome sound effects as I move.</p>
+            <p>Because who doesn't need to create their own unique font?</p>
 
-            <p>Accelerometer APIs are available, but how do I use that data to recognize a motion?</p>
-            <aside class="notes">
-                Surely this has been done before.
-            </aside>
+            <h4><a href="demos/plumin.html" target="_blank">DEMO TIME!</a></h4>
         </section>
 
         <section>
-            <h2>JS Motion Gesture</h2>
-
-            <p>A JavaScript library hidden in the depths of SourceForge</p>
-            <blockquote cite="http://sourceforge.net/projects/jsmotiongesture/">
-                &ldquo;The software converts the continual stream of motion readings into distinct gesture events.
-                All you need to do is attach event-handlers to the gestures. Your functions get called when the user
-                makes the gesture with the device.&rdquo;
+            <blockquote>
+                &ldquo;I will never entertain the thought of creating my own font, but you're going to show us
+                how to create one anyway aren't you?&rdquo; -Michael Scott
             </blockquote>
-            <p><a href="http://sourceforge.net/projects/jsmotiongesture/">http://sourceforge.net/projects/jsmotiongesture/</a>
+
+            <p>
+                <a href="http://www.pluminjs.com/" target="_blank">Plumin.js</a> is a library that creates and
+                manipulates fonts using javascript.
             </p>
-        </section>
 
-        <section>
-            <h2>Defining Gestures</h2>
-					<pre><code data-trim contenteditable>
-                        Motion.Gesture.Library.SLAP={
-                        "id": "slap",
-                        "signature": {
-                        "roots": [
-                        {
-                        "points": [
-                        {
-                        "axis": "xg",
-                        "window": {
-                        "value": {
-                        "min": -10,
-                        "max": 10
-                        }
-                        }
-                        },
-                        {
-                        "axis": "yg",
-                        "window": {
-                        "value": {
-                        "min": -10,
-                        "max": 10
-                        }
-                        }
-                        },
-                        {
-                        "axis": "zg",
-                        "window": {
-                        "value": {
-                        "min": -10,
-                        "max": 10
-                        }
-                        }
-                        }
-                        ],
-                        "next": {
-                        "points": [
-                        {
-                        "axis": "zg",
-                        "window": {
-                        "value": {
-                        "min": 15,
-                        "max": 100
-                        }
-                        }
-                        }
-                        ],
-                        "window": {
-                        "time": {
-                        "width": 1000,
-                        "delay": 0
-                        }
-                        }
-                        },
-                        "window": {
-                        "time": {
-                        "width": 1000
-                        }
-                        }
-                        }
-                        ]
-                        }
-                        }
-                    </code></pre>
-        </section>
-
-        <section>
-            <h2>Handling Gestures</h2>
-					<pre><code data-trim contenteditable>
-                        function playAudio(sound) {
-                        createjs.Sound.play(sound);
-                        soundImage.src='/'+sound+'.png';
-                        };
-
-                        gestureMonitor = new Motion.Gesture.Recognition.Monitor();
-                        gestureMonitor.addGesture(Motion.Gesture.Library.SLAP, function() {
-                        playAudio("slap");
-                        });
-                        new Motion.Gesture.Recognition.MotionDataPump(gestureMonitor, 5).start();
-                    </code></pre>
-        </section>
-
-        <section>
-            <h2>The End Result</h2>
-
-            <p>Let's see this magic in action!</p>
-
-            <p><a href="https://www.youtube.com/watch?v=nuo5z397JuQ&index=1&list=PLrVzHwGkVfexrwo1xpzwk6FJNbG9YrENq">Just
-                in case the demo went horribly wrong...</a></p>
+            <p>
+                npm install plumin.js
+            </p>
         </section>
 
         <section style="text-align: left;">
