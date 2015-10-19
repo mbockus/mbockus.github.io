@@ -22,10 +22,13 @@
     "node": "~0.10.0"
   },
   "dependencies": {
-    "underscore": "~1.5.1",
+    "blast-text": "^2.0.0",
+    "cheet.js": "~0.3.3",
     "express": "~2.5.9",
     "mustache": "~0.7.2",
-    "socket.io": "~0.9.16"
+    "plumin.js": "^0.9.10",
+    "socket.io": "~0.9.16",
+    "underscore": "~1.5.1"
   },
   "devDependencies": {
     "grunt-contrib-qunit": "~0.5.2",
@@ -40,6 +43,5 @@
     "grunt": "~0.4.0",
     "node-sass": "~0.9.3"
   },
-  
   "license": "MIT"
 }

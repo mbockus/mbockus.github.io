@@ -102,12 +102,12 @@
             </p>
 
             <p>
-                bower install cheet.js
+                npm install cheet.js
             </p>
         </section>
 
         <section>
-            <h2>Examples</h2>
+            <h2>Easter Egg Examples</h2>
             <pre><code data-trim contenteditable>
 cheet('↑ ↑ ↓ ↓ ← → ← → b a', function () {
     alert('Voilà!');
@@ -134,7 +134,7 @@ cheet('o n e a t a t i m e', {
         </section>
 
         <section>
-            <h2>More Examples</h2>
+            <h2>More Easter Egg Examples</h2>
             <pre><code class="hljs" data-trim contenteditable>
 cheet('o n c e', function () {
     console.log('This will only fire once.');
@@ -181,6 +181,165 @@ cheet.done(function (seq) {
             <p>
                 npm install plumin.js
             </p>
+        </section>
+
+        <section>
+            <h2>Font Creation Examples</h2>
+            <pre><code data-trim contenteditable>
+(function(p) {
+
+var font = new p.Font({
+        familyName: 'Demo',
+        ascender: 800,
+        descender: -100
+    }),
+    a = new p.Glyph({
+        name: 'a',
+        unicode: 'a',
+        advanceWidth: 496
+    }),
+    i = new p.Glyph({
+        name: 'i',
+        unicode: 'i',
+        advanceWidth: 268
+    }),
+    o = new p.Glyph({
+        name: 'o',
+        unicode: 'o',
+        advanceWidth: 536
+    }),
+    shape;
+
+// a contour
+shape = new p.Path.RegularPolygon({
+    center: [268, 124],
+    sides: 3,
+    radius: 248
+});
+shape.rotate(180, [268, 124]);
+shape.scale(1, 1.4, [268, 0]);
+a.addContour(shape);
+
+// i contour
+shape = new p.Path.Rectangle({
+    point: [60, 0],
+    size: [140, 500]
+});
+i.addContour(shape);
+
+// o contour
+shape = new p.Path.Ellipse({
+    point: [50, 0],
+    size: [436, 510]
+});
+o.addContour(shape);
+
+font.addGlyphs([ a, i, o ]);
+font.updateOTCommands()
+    .addToFonts();
+
+})(plumin.paper);
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>Text Manipulation</h2>
+
+            <p>One more thing to add that will never work in IE.</p>
+
+            <h4><a href="demos/blast.html" target="_blank">DEMO TIME!</a></h4>
+        </section>
+
+        <section>
+            <h2>Fun with Blast.js</h2>
+
+            <p>Blast text apart to make it manipulable.</p>
+
+            <p>
+                npm install blast-text
+            </p>
+        </section>
+
+        <section>
+            <h2>Text Blastin' Examples</h2>
+            <pre><code data-trim contenteditable>
+                // blast examples
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>Stickers</h2>
+
+            <p>Because you are developing web sites for small children.</p>
+
+            <h4><a href="demos/stickers.html" target="_blank">DEMO TIME!</a></h4>
+        </section>
+
+        <section>
+            <h2>Getting sticky with Stickers.js</h2>
+
+            <p>A library that provides a sticker effect.</p>
+
+            <p>
+                https://github.com/cmiscm/stickerjs
+            </p>
+        </section>
+
+        <section>
+            <h2>Sticker Effect Configuring</h2>
+            <pre><code data-trim contenteditable>
+                // stickering examples
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>Farts</h2>
+
+            <p>Because no important talk is complete without farts.</p>
+
+            <h4><a href="demos/fartscroll.html" target="_blank">DEMO TIME!</a></h4>
+        </section>
+
+        <section>
+            <h2>Farting with fartscroll.js</h2>
+
+            <p>A library that delivers fart audio to your web page.</p>
+
+            <p>
+                https://github.com/theonion/fartscroll.js
+            </p>
+        </section>
+
+        <section>
+            <h2>Farting Config</h2>
+            <pre><code data-trim contenteditable>
+// Fart every 400 pixels scrolled in the window
+fartscroll();
+
+// Fart every 800 pixels scrolled
+fartscroll(800);
+
+// Fart every 100 pixels scrolled (probably a bit much)
+fartscroll(100);
+
+// Now I'm just adding more examples to make the page longer
+fartscroll(50);
+
+// SO MANY FARTS
+fartscroll(5);
+
+// I should register fart.io for this
+fartscroll(500);
+
+// I should register fart.io for this
+fartscroll(400);
+
+// Dammit, fart.io is taken
+fartscroll(600);
+
+// Alright, that's probably enough examples
+fartscroll(400);
+            </code></pre>
         </section>
 
         <section style="text-align: left;">
