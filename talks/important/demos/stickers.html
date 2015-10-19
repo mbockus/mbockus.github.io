@@ -2,9 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Stickers</title>
+	<style type="text/css">
+		.stickerdemo > ul {
+			position: relative;
+			margin: 10px auto 0 auto;
+			width: 720px;
+			height: 420px;
+		}
+		.stickerdemo > ul > li {
+			margin: 30px 30px 0 30px;
+		}
+		ul, li {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			display: block;
+			position: relative;
+		}
+        .demo-sticker {
+            width: 180px;
+            height: 180px;
+            float: left;
+        }
+        .demo-1 .sticker-img {
+            background-image: url(../img/demosticker-1.jpg);
+        }
+        .demo-2 .sticker-img {
+            background-image: url(../img/demosticker-2.jpg);
+        }
+        .demo-3 .sticker-img {
+            background-image: url(img/demosticker-3.png);
+        }
+    </style>
 </head>
 <body>
-
+<section class="stickerdemo">
+    <h3>Child Torture Devices</h3>
+    <ul>
+        <li class="sticker demo-sticker demo-1"></li>
+        <li class="sticker demo-sticker demo-2"></li>
+        <li class="sticker demo-sticker demo-3"></li>
+    </ul>
+</section>
+<script src="../js/sticker.min.js"></script>
+<script type="text/javascript">
+    window.onload = function() {
+        Sticker.init('.sticker');
+    }
+</script>
 </body>
 </html>
