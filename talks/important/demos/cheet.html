@@ -6,7 +6,8 @@
 </head>
 <body>
 <h1>HTML Ipsum Presents</h1>
-
+<img id="profileImg" src="../img/me.jpg"/><br/>
+<canvas id="gameCanvas"></canvas>
 <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
 
 <h2>Header Level 2</h2>
@@ -25,14 +26,45 @@
     <li>Aliquam tincidunt mauris eu risus.</li>
 </ul>
 
-<pre><code>
-    #header h1 a {
-    display: block;
-    width: 300px;
-    height: 80px;
-    }
-</code></pre>
 <script src="../node_modules/cheet.js/cheet.min.js"></script>
 <script src="../js/eastereggs.js"></script>
+<script src="../js/spaceinvaders.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script>
+        //  Setup the canvas.
+        var canvas = document.getElementById("gameCanvas");
+        canvas.width = 800;
+        canvas.height = 600;
+
+        //  Create the game.
+        var game = new Game();
+
+        //  Initialise it with the game canvas.iddqd
+        game.initialise(canvas);
+
+        //  Start the game.
+        game.start();
+
+        //  Listen for keyboard events.
+        var pressedKeys = [];
+        window.addEventListener("keydown", function keydown(e) {
+            var keycode = window.event.keycode || e.which;
+            if (!pressedKeys[keycode])
+                pressedKeys[keycode] = true;
+            //  Supress further processing of left/right/space (37/29/32)
+            if (keycode == 37 || keycode == 39 || keycode == 32) {
+                e.preventDefault();
+            }
+            game.keyDown(keycode);
+        });
+        window.addEventListener("keyup", function keydown(e) {
+            var keycode = window.event.keycode || e.which;
+            if (pressedKeys[keycode])
+                delete pressedKeys[keycode];
+            game.keyUp(keycode);
+        });
+
+        $("#gameCanvas").hide();
+</script>
 </body>
 </html>

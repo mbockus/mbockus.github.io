@@ -286,10 +286,37 @@ font.updateOTCommands()
         </section>
 
         <section>
-            <h2>Sticker Effect Configuring</h2>
-            <pre><code data-trim contenteditable>
-                // stickering examples
-            </code></pre>
+            <section>
+                <h2>Sticker Effect Configuring</h2>
+                <p>Create some sticker DOM elements</p>
+                <pre><code data-trim contenteditable>
+<div class="sticker example-1"></div>
+<div class="sticker example-2"></div>
+                </code></pre>
+                <p>Add the CSS to configure size and image/color</p>
+                <pre><code data-trim contenteditable>
+.sticker {
+width: 180px;
+height: 180px;
+}
+
+// add image
+.example-1 .sticker-img {
+background-image: url(example.png);
+}
+
+// add color
+.example-2 .sticker-img {
+background-color: #ff4a85;
+}
+                </code></pre>
+            </section>
+            <section>
+                <p>Tell stickerjs what to target.</p>
+                <pre><code data-trim contenteditable>
+                    Sticker.init('.sticker');
+                </code></pre>
+            </section>
         </section>
 
         <section>
@@ -319,25 +346,15 @@ fartscroll();
 // Fart every 800 pixels scrolled
 fartscroll(800);
 
-// Fart every 100 pixels scrolled (probably a bit much)
-fartscroll(100);
-
-// Now I'm just adding more examples to make the page longer
-fartscroll(50);
+// Fart every 2000 pixels scrolled. Maybe this is a long
+// article and you want the user to question if they're hearing things
+fartscroll(2000);
 
 // SO MANY FARTS
 fartscroll(5);
 
-// I should register fart.io for this
-fartscroll(500);
-
-// I should register fart.io for this
-fartscroll(400);
-
-// Dammit, fart.io is taken
-fartscroll(600);
-
-// Alright, that's probably enough examples
+// Alright, that's probably enough examples. Just wanted one more excuse
+// to say 'fart'.
 fartscroll(400);
             </code></pre>
         </section>
