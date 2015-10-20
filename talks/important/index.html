@@ -80,6 +80,7 @@
                     <li>Easter Eggs</li>
                     <li>Font Creation</li>
                     <li>Text Manipulation</li>
+                    <li>Forcing Poor Performance</li>
                     <li>Stickers</li>
                     <li>Farts</li>
                 </ul>
@@ -270,7 +271,7 @@ font.updateOTCommands()
 
         <section>
             <section>
-            <h2>Text Blastin' Examples</h2>
+            <h2>Text Blastin' Example</h2>
             <pre><code data-trim contenteditable>
 // Blast apart an element using the "word" delimiter
 $("div").blast({ delimiter: "word" });
@@ -291,7 +292,7 @@ $("div").blast(false);
             </code></pre>
             </section>
             <section>
-                <h2>Text Blastin' Examples</h2>
+                <h2>Text Blastin' Options</h2>
             <pre><code data-trim contenteditable>
 $("div").blast({
     delimiter: "character" // Set the delimiter type
@@ -306,6 +307,42 @@ $("div").blast({
 });
             </code></pre>
             </section>
+        </section>
+
+        <section>
+            <h2>Forcing Poor Performance</h2>
+
+            <p>Because you hate your users.</p>
+
+            <h4><a href="demos/comcastify.html" target="_blank">DEMO TIME!</a></h4>
+        </section>
+
+        <section>
+            <h2>Slowing things down with comcastify.js</h2>
+
+            <p>A library that incrementally loads the elements on the page</p>
+
+            <p>
+                https://github.com/theonion/comcastifyjs
+            </p>
+        </section>
+
+        <section>
+                <h2>Comcastifying Your Page</h2>
+                <pre><code data-trim contenteditable>
+$(document).ready(function () {
+    comcastifyjs.letsPrepareTheseImages();
+});
+
+$(window).load(function () {
+    comcastifyjs.fixMyImagesLoadingSoFast({
+    loadMaxPercent: 0.75,
+    loadSpeed: 1000,
+    loadIncrement: 5,
+    boxColor: '#ece4d8'
+    })();
+});
+                </code></pre>
         </section>
 
         <section>

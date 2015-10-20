@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h3>My best angle.</h3>
+<img src="../img/favoriteme.jpg"/>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/comcastify.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        comcastifyjs.letsPrepareTheseImages();
+    });
+
+    $(window).load(function () {
+        comcastifyjs.fixMyImagesLoadingSoFast({
+            loadMaxPercent: 0.75,
+            loadSpeed: 1000,
+            loadIncrement: 5,
+            boxColor: '#ece4d8'
+        })();
+    });
+</script>
+</body>
+</html>
