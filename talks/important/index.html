@@ -107,10 +107,11 @@
         </section>
 
         <section>
+        <section>
             <h2>Easter Egg Examples</h2>
             <pre><code data-trim contenteditable>
-cheet('↑ ↑ ↓ ↓ ← → ← → b a', function () {
-    alert('Voilà!');
+cheet('U U D D L R L R b a', function () {
+    alert('+30 lives');
 });
 
 cheet('i d d q d', function () {
@@ -127,10 +128,13 @@ cheet('o n e a t a t i m e', {
         console.log('sequence failed');
     },
     done: function () {
-        console.log('+30 lives ;)');
+        console.log('I am proud of you');
     }
 });
             </code></pre>
+            <aside class="notes">
+                Don't forget to navigate down.
+            </aside>
         </section>
 
         <section>
@@ -158,6 +162,7 @@ cheet.done(function (seq) {
 });
             </code></pre>
         </section>
+        </section>
 
         <section>
             <h2>Font Creation</h2>
@@ -181,6 +186,9 @@ cheet.done(function (seq) {
             <p>
                 npm install plumin.js
             </p>
+            <aside class="notes">
+                I'm going to show you anyway, because it's important
+            </aside>
         </section>
 
         <section>
@@ -243,9 +251,9 @@ font.updateOTCommands()
         </section>
 
         <section>
-            <h2>Text Manipulation</h2>
+            <h2>Text Manipulation and Animation</h2>
 
-            <p>One more thing to add that will never work in IE.</p>
+            <p>It even works in IE!</p>
 
             <h4><a href="demos/blast.html" target="_blank">DEMO TIME!</a></h4>
         </section>
@@ -261,10 +269,43 @@ font.updateOTCommands()
         </section>
 
         <section>
+            <section>
             <h2>Text Blastin' Examples</h2>
             <pre><code data-trim contenteditable>
-                // blast examples
+// Blast apart an element using the "word" delimiter
+$("div").blast({ delimiter: "word" });
+
+// Before
+<div>
+    Hello World
+</div>
+
+// After
+<div class="blast-root">
+    <span class="blast">Hello</span>
+    <span class="blast">World</span>
+</div>
+
+// All Done
+$("div").blast(false);
             </code></pre>
+            </section>
+            <section>
+                <h2>Text Blastin' Examples</h2>
+            <pre><code data-trim contenteditable>
+$("div").blast({
+    delimiter: "character" // Set the delimiter type
+    search: false // Perform a search *instead* of delimiting
+    tag: "span" // Set the wrapping element type (e.g. "div")
+    customClass: "" // Add a custom class to wrappers
+    generateIndexID: false // Add #customClass-i to wrappers
+    generateValueClass: false // Add .blast-word-val to wrappers
+    stripHTMLTags: false // Strip HTML before blasting
+    returnGenerated: true // Return generated elements to stack
+    aria: true // Avoid speechflow disruption for screenreaders
+});
+            </code></pre>
+            </section>
         </section>
 
         <section>

@@ -3,8 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" href="../css/blastdemo.css"/>
 </head>
 <body>
+<div id="main" class="bodyContainer">
+    <div id="header">
+        <h1>
+            Blast<span id="headerDot">.</span>js<span id="headerDivider">|</span><a id="githubLogo" href="http://github.com/julianshapiro/blast" target="_blank">GitHub</a>
+        </h1>
+        <h2>
+            Blast text apart to make it manipulable.
+        </h2>
+    </div>
+    <hr id="hrHeader">
+    <ul id="description" class="">
+        <li class="">
+            <h3 class="descriptionHeader">Overview</h3>
+            Blast.js separates text in order to facilitate typographic manipulation. It has four delimiters built in: character, word, sentence, and element. Alternatively, Blast can match custom regular expressions and phrases.
+        </li>
+        <li>
+            Blast's uses include <a id="btnTypographicAnimation" target="_blank">typographic animation</a>, <a id="btnJuxtapositionDemo" target="_blank">juxtaposition</a>, <a id="btnStylingDemo" target="_blank">styling</a>, <a id="btnSearchDemo" target="_blank">search</a>, and <a id="btnAnalysisDemo" target="_blank">analysis</a>.
+        </li>
+        <li>
+            Blast is highly accurate; it neither dumbly splits words at spaces nor dumbly splits sentences at periods. All Latin alphabet languages and UTF-8 characters are supported. Features include: 1) By only traversing text nodes, all HTML, event handlers, and spacing are preserved. Thus, you can safely apply Blast to any part of your page. 2) Automatic class and ID generation make text selection simple. 4) Blast can be fully undone with a single call.
+        </li>
+        <li class="responsive-low-priority">
+            The elements Blast generates can be accessed through both CSS and JavaScript by referencing auto-generated class names or iterating via jQuery/Zepto's eq() function.
+        </li>
+        <li class="responsive-low-priority">
+            Refer to the documentation on the right for Blast's API.
+        </li>
+        <li>
+            Read <a href="http://www.awwwards.com/blast-js-javascript-library-for-creative-and-safe-text-manipulation.html" target="_blank">this article</a> to learn more about working with Blast.
+        </li>
+        <li class="responsive-low-priority">
+            <h3 class="descriptionHeader" id="description-Gallery">Robustness Gallery</h3>
+        </li>
+        <li>
+            Choose a delimiter type to see how Blast performs:
+        </li>
+        <li id="buttons">
+            <input id="btnUndo" name="undo" value="Undo" type="button" style="display: none;">
+            <input id="btnCharacter" name="character" value="Character" type="button" class="btnClicked">
+            <input id="btnWord" name="word" value="Word" type="button">
+            <input id="btnSentence" name="sentence" value="Sentence" type="button">
+            <input id="btnElement" name="element" value="Element" type="button">
+            <input id="btnSearch" name="search" value="Search:" type="button"><input id="textBtnSearch" value="blast" type="text">
+        </li>
+        <li>
+            Code mockups and entities are preserved: &lt;br/&gt; → ○_○ ©
+        </li>
+        <li class="responsive-low-priority">
+            <span>Existing &lt;span&gt;s do not cause complications. Plus, style and script elements are ignored during DOM traversal.</span>
+        </li>
+        <li>
+            Event handlers are preserved: <input id="btnSample" type="button" value="Click Me">
+        </li>
+        <li>
+            ¿Does the sentence delimiter recognize the full range of Latin alphabet punctuation? ¡Yes! « Mais, oui ! »
+        </li>
+        <li class="responsive-low-priority">
+            "Inner "quotes" don't break the sentence delimiter!" Further, periods inside words (e.g. Blast.js), in formal titles (e.g. Mrs. Bluth, Dr. Fünke), and in "e.g." and "i.e." do not falsely match as sentence-final punctuation.
+        </li>
+        <li class="responsive-low-priority">
+            You can manually prevent sentence-final punctuation from triggering a sentence match by replacing it with its ASCII code inside double curly brackets: {{ASCII}}.
+        </li>
+        <li>
+            Note that the introduction of an HTML element, <i>like the &lt;i&gt; surrounding this clause</i>, breaks a sentence match. Likewise, the &lt;b&gt; within em<b>bold</b>en breaks a word match. This is a result of the DOM traversal process, which treats <b>each new element as a separate search string</b>.
+        </li>
+        <li>
+            HTML tags and attributes, e.g. <b id="test" class="test">BOLD</b> and <i>ITALIC</i>, are preserved in their entirety. <span style="font-style: italic">Further, Blast fully preserves this &lt;span&gt; that has a <strong>&lt;strong&gt; nested inside of it.</strong></span>
+        </li>
+        <li>
+            Read this <a href="https://hacks.mozilla.org/2014/09/introducing-blast-js/" target="_blank">this article</a> for a technical walkthrough of Blast.
+        </li>
+    </ul>
+</div>
+<script src="../js/jquery.min.js"></script>
+<script src="../node_modules/velocity-animate/velocity.js"></script>
+<script src="../node_modules/velocity-animate/velocity.ui.js"></script>
+<script src="../node_modules/blast-text/jquery.blast.js"></script>
 
+<script src="../js/blastdemo.js"></script>
 </body>
 </html>

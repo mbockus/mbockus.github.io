@@ -28,7 +28,8 @@
     "mustache": "~0.7.2",
     "plumin.js": "^0.9.10",
     "socket.io": "~0.9.16",
-    "underscore": "~1.5.1"
+    "underscore": "~1.5.1",
+    "velocity-animate": "^1.2.3"
   },
   "devDependencies": {
     "grunt-contrib-qunit": "~0.5.2",
